@@ -72,6 +72,7 @@ import nro.models.services.ItemTimeService;
 import nro.models.task.BadgesTask;
 import nro.models.task.BadgesTaskService;
 import nro.models.player.Captcha;
+import nro.netty.Session;
 
 /**
  *
@@ -84,7 +85,7 @@ public class Player implements Runnable {
     public Map<Integer, Long> activeEffects = new HashMap<>();
     @Setter
     @Getter
-    public MySession session;
+    public nro.netty.Session session;
     public long id;
     public String name;
     public byte gender;

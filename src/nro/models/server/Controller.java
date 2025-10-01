@@ -954,4 +954,14 @@ public class Controller implements IMessageHandler {
             player.getSession().finishUpdate = true;
         }
     }
+    public void onMessage(nro.netty.Session session, Message msg) {
+    if (session != null) {
+        if (session.player != null) {
+            this.messageHandler.process(session.player, msg);
+        } else if (msg.getCommand() == -29) {
+            // Xử lý gói tin handshake và đăng nhập
+            this.messageHandler.process(session, msg);
+        }
+    }
+}
 }
